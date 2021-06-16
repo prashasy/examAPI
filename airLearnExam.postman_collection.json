@@ -1,0 +1,72 @@
+{
+	"info": {
+		"_postman_id": "a0d29fdf-565c-41ab-ad67-3432c5b799c5",
+		"name": "airLearnExam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "addExam",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"title\":\"cse\",\n\"questionCount\":1,\n\"marks\":{\n    \"correct\":4,\n    \"wrong\":-1\n},\n\"questionsList\":[{\n\"question\":\"What is JSON?\",\n\"options\":{\n    \"a\":\"JS\",\n    \"b\":\"JSO\",\n    \"c\":\"JSOO\",\n    \"d\":\"Javascript Object Notation\"\n    },\n\"correctOption\":\"d\"\n}]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/exams/add",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"exams",
+						"add"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "cse",
+							"disabled": true
+						},
+						{
+							"key": "questionCount",
+							"value": "2",
+							"disabled": true
+						},
+						{
+							"key": "marks",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getExamById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "submitAnswerSheet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
