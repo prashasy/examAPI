@@ -1,7 +1,8 @@
 import Models from '../Models';
-import { generateQPId } from '../Utilities/helper';
+import { generateAnsSheetId, generateQPId, getMarksObtained } from '../Utilities/helper';
 import { Request, Response } from 'express';
 import { QuestionPaperType } from '../Models/questionPaper';
+import { AnswerPaperType } from '../Models/answerPaper';
 
 const addExam = async (req: Request, res: Response) => {
     const qp = req.body;
@@ -21,5 +22,14 @@ const getExamById = async (req: Request, res: Response) => {
     res.status(200).json({ 'message': 'success', 'questionPaper': result });
 }
 
+const postAnswerSheet = async (req: Request, res: Response) => {
+    const ansSheetId = await generateAnsSheetId();
+    const ansSheet: AnswerPaperType = { ...req.body, ansSheetId }
+    const marksObtained = await getMarksObtained(ansSheet, res);
+    ansSheet.marksObtained = marksObtained;
+    await Models.answerPapersModel.create(ansSheet);
+    res.status(200).json({ 'message': 'success', 'total marks obtained': marksObtained });
+}
 
-export default { addExam, getExamById };
+
+export default { addExam, getExamById, postAnswerSheet };

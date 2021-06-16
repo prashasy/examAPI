@@ -12,7 +12,7 @@ export interface QuestionPaperType {
         question: String,
         options: {
             [key: string]: String,
-        }[],
+        },
         correctOption: String,
     }[]
 }

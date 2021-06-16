@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import questionPapersModel from './questionPaper';
+import answerPapersModel from './answerPaper';
 
 mongoose
     .connect('mongodb://localhost:27017/airLearnExams', {
@@ -11,5 +12,6 @@ mongoose
     .then(() => console.log('DB connection successful!'));
 
 export default {
-    'questionPapersModel': questionPapersModel,
+    questionPapersModel,
+    answerPapersModel
 }
