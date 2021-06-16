@@ -1,6 +1,22 @@
-import { mongo } from "mongoose";
+import mongoose from 'mongoose';
 
-const mongoose = require('mongoose');
+export interface QuestionPaperType {
+    qpId: Number,
+    title: String,
+    questionCount: String,
+    marks: {
+        correct: Number,
+        wrong: Number
+    },
+    questionsList: {
+        question: String,
+        options: {
+            [key: string]: String,
+        }[],
+        correctOption: String,
+    }[]
+}
+
 
 const marksSchema = new mongoose.Schema({
     correct: { type: Number, required: true },
