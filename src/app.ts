@@ -8,3 +8,5 @@ app.use(router);
 app.listen(4000, () => {
     console.log('server is listening on port 3000');
 })
+
+export default app;

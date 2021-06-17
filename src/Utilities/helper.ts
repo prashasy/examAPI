@@ -21,7 +21,7 @@ export const generateAnsSheetId = async () => {
 export const getMarksObtained = async (ansSheet: AnswerPaperType, res: Response) => {
     const qps: QuestionPaperType[] = await Models.questionPapersModel.find({ qpId: ansSheet.qpId });
     if (qps.length === 0) {
-        res.status(404).json({ 'message': 'question paper not found' });
+        res.status(404).send({ 'message': 'question paper not found' });
         return;
     }
     const correct = qps[0].marks.correct;

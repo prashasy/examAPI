@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 export interface QuestionPaperType {
     qpId: Number,
     title: String,
-    questionCount: String,
+    questionCount: Number,
     marks: {
         correct: Number,
         wrong: Number
